@@ -1,4 +1,3 @@
-/* Reset básico */
 * {
     margin: 0;
     padding: 0;
@@ -7,121 +6,127 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f8ff;
+    background-color: #f4fff4;
     color: #333;
     line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
     padding: 20px;
 }
 
 header {
-    text-align: center;
-    background-color: #4CAF50;
+    background: linear-gradient(to right, #2e7d32, #66bb6a);
     color: white;
-    padding: 20px 0;
-    border-radius: 8px;
+    text-align: center;
+    padding: 80px 20px;
 }
 
-main {
-    margin-top: 20px;
+header h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+header p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.botao {
+    display: inline-block;
+    background-color: white;
+    color: #2e7d32;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.botao:hover {
+    background-color: #dcedc8;
 }
 
 section {
-    background-color: #e0f7fa;
-    padding: 15px;
+    margin-top: 40px;
+}
+
+section h2 {
+    text-align: center;
     margin-bottom: 20px;
-    border-radius: 8px;
+    color: #2e7d32;
 }
 
-h1, h2 {
-    margin-bottom: 10px;
+#cards {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-button:hover {/* Reset básico */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f8ff;
-    color: #333;
-    line-height: 1.6;
+.card {
+    background-color: white;
     padding: 20px;
+    width: 280px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
 }
 
-header {
-    text-align: center;
-    background-color: #4CAF50;
-    color: white;
-    padding: 20px 0;
-    border-radius: 8px;
+.card:hover {
+    transform: translateY(-5px);
 }
 
-main {
-    margin-top: 20px;
-}
-
-section {
-    background-color: #e0f7fa;
-    padding: 15px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-}
-
-h1, h2 {
+.card h3 {
     margin-bottom: 10px;
+    color: #388e3c;
 }
 
-button {
-    background-color: #4CAF50;
+#quiz {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+#quiz button {
+    background-color: #43a047;
     color: white;
     border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
+    padding: 12px 20px;
+    margin: 10px;
+    border-radius: 8px;
     cursor: pointer;
+    font-size: 1rem;
+    transition: 0.3s;
 }
 
-button:hover {
-    background-color: #45a049;
+#quiz button:hover {
+    background-color: #2e7d32;
 }
 
-input {
-    padding: 5px;
-    margin-right: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-footer {
-    text-align: center;
-    margin-top: 30px;
-    font-size: 0.9em;
-    color: #555;
-}
-    background-color: #45a049;
-}
-
-input {
-    padding: 5px;
-    margin-right: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+#mensagem {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
 }
 
 footer {
+    background-color: #1b5e20;
+    color: white;
     text-align: center;
+    padding: 15px;
     margin-top: 30px;
-    font-size: 0.9em;
-    color: #555;
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    #cards {
+        flex-direction: column;
+        align-items: center;
+    }
 }
