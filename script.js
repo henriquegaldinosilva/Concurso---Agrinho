@@ -60,19 +60,32 @@ section h2 {
     color: #2e7d32;
 }
 
-#cards {
+.imagem-tema {
+    display: block;
+    max-width: 100%;
+    margin: 20px auto;
+    border-radius: 12px;
+}
+
+.video-tema {
+    border-radius: 12px;
+}
+
+/* Cards */
+.cards-wrapper {
     display: flex;
-    gap: 20px;
     flex-wrap: wrap;
+    gap: 20px;
     justify-content: center;
 }
 
 .card {
     background-color: white;
-    padding: 20px;
+    padding: 15px;
     width: 280px;
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    text-align: center;
     transition: transform 0.3s;
 }
 
@@ -80,14 +93,15 @@ section h2 {
     transform: translateY(-5px);
 }
 
-.card h3 {
+.card img {
+    width: 100%;
+    border-radius: 8px;
     margin-bottom: 10px;
-    color: #388e3c;
 }
 
+/* Quiz */
 #quiz {
     text-align: center;
-    margin-bottom: 50px;
 }
 
 #quiz button {
@@ -112,6 +126,29 @@ section h2 {
     font-weight: bold;
 }
 
+/* Contador */
+#contador {
+    text-align: center;
+    margin-top: 40px;
+}
+
+#contador button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#resultado {
+    margin-top: 15px;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* Footer */
 footer {
     background-color: #1b5e20;
     color: white;
@@ -120,12 +157,13 @@ footer {
     margin-top: 30px;
 }
 
+/* Responsividade */
 @media (max-width: 768px) {
     header h1 {
         font-size: 2rem;
     }
 
-    #cards {
+    .cards-wrapper {
         flex-direction: column;
         align-items: center;
     }
