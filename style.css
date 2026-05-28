@@ -1,12 +1,13 @@
-function calcularDias() {
-    const diasInput = document.getElementById("diasInput").value;
-    const resultado = document.getElementById("resultado");
+function respostaCorreta() {
+    const mensagem = document.getElementById("mensagem");
 
-    if (diasInput === "" || isNaN(diasInput) || diasInput < 0) {
-        resultado.textContent = "Por favor, digite um número válido de dias!";
-        resultado.style.color = "red";
-    } else {
-        resultado.textContent = `Faltam ${diasInput} dias para o final do ano letivo.`;
-        resultado.style.color = "green";
-    }
+    mensagem.textContent = "✅ Correto! Plantar árvores ajuda a preservar o meio ambiente.";
+    mensagem.style.color = "green";
+}
+
+function respostaErrada() {
+    const mensagem = document.getElementById("mensagem");
+
+    mensagem.textContent = "❌ Errado! Desperdiçar água prejudica o planeta.";
+    mensagem.style.color = "red";
 }
