@@ -1,302 +1,157 @@
-/* Configurações Globais e Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    scroll-behavior: smooth;
+// ==================== LÓGICA DO SIMULADOR ====================
+let nivelEquilibrio = 50; // Começa exatamente no meio (Equilibrado)
+
+function tomarDecisao(impacto) {
+    nivelEquilibrio += impacto;
+    
+    // Impede que passe de 0 ou 100
+    if (nivelEquilibrio < 0) nivelEquilibrio = 0;
+    if (nivelEquilibrio > 100) nivelEquilibrio = 100;
+    
+    atualizarSimulador();
 }
 
-:root {
-    --cor-principal: #2e7d32;
-    --cor-secundaria: #81c784;
-    --cor-escura: #1b5e20;
-    --cor-fundo: #f4f6f4;
-    --cor-texto: #333;
+function redefinirSimulador() {
+    nivelEquilibrio = 50;
+    atualizarSimulador();
 }
 
-body {
-    background-color: var(--cor-fundo);
-    color: var(--cor-texto);
-    line-height: 1.6;
+function atualizarSimulador() {
+    const indicador = document.getElementById('indicador-equilibrio');
+    const feedback = document.getElementById('feedback-simulador');
+    
+    // Atualiza visualmente a largura do indicador da barra
+    indicador.style.width = nivelEquilibrio + '%';
+    
+    // Textos de feedback com base no valor
+    if (nivelEquilibrio === 50) {
+        feedback.textContent = "Equilíbrio Perfeito! Ótima produtividade sem agredir a natureza.";
+        feedback.style.color = "#2e7d32";
+    } else if (nivelEquilibrio < 40) {
+        feedback.textContent = "Alerta: Você aumentou a produção temporária, mas o solo e as águas estão sofrendo degradação severa!";
+        feedback.style.color = "#d32f2f";
+    } else if (nivelEquilibrio > 65) {
+        feedback.textContent = "Atenção: Ótimo cuidado ambiental, mas verifique se a escala de produção atende a demanda do mercado.";
+        feedback.style.color = "#f57c00";
+    } else {
+        feedback.textContent = "Sua fazenda está em níveis aceitáveis de sustentabilidade. Continue ajustando!";
+        feedback.style.color = "#1976d2";
+    }
 }
 
-.container {
-    padding: 60px 20px;
-    max-width: 1200px;
-    margin: 0 auto;
+
+// ==================== LÓGICA DO QUIZ INTERATIVO ====================
+const perguntasQuiz = [
+    {
+        pergunta: "Qual das práticas abaixo melhor representa o tema 'Equilíbrio entre produção e meio ambiente'?",
+        opcoes: [
+            "Aumentar o desmatamento para expandir pastos rapidamente.",
+            "Utilizar o Sistema de Integração Lavoura-Pecuária-Floresta (ILPF).",
+            "Banir completamente o uso de qualquer tecnologia no campo.",
+            "Substituir toda a água de irrigação por água potável tratada."
+        ],
+        correta: 1
+    },
+    {
+        pergunta: "Para que serve a agricultura de precisão?",
+        opcoes: [
+            "Para plantar apenas sementes redondas.",
+            "Para aplicar insumos e água na quantidade exata e no local correto, reduzindo desperdícios.",
+            "Para prever o clima com 100% de certeza para os próximos dez anos.",
+            "Para acelerar o crescimento das plantas usando luz artificial em todo o campo."
+        ],
+        correta: 1
+    },
+    {
+        pergunta: "O que são bioinsumos na agricultura moderna?",
+        opcoes: [
+            "Produtos químicos altamente tóxicos proibidos pela lei.",
+            "Ferramentas digitais de tratoristas.",
+            "Defensivos e fertilizantes de origem biológica (organismos vivos ou recursos naturais).",
+            "Combustíveis fósseis usados para mover colheitadeiras."
+        ],
+        correta: 2
+    }
+];
+
+let perguntaAtual = 0;
+let pontuacao = 0;
+
+const elementoPergunta = document.getElementById('pergunta');
+const elementoAlternativas = document.getElementById('alternativas');
+const btnProximo = document.getElementById('btn-proximo');
+const containerQuiz = document.getElementById('quiz-container');
+const containerResultado = document.getElementById('resultado-quiz');
+const elementoPlacar = document.getElementById('placar');
+
+function iniciarQuiz() {
+    perguntaAtual = 0;
+    pontuacao = 0;
+    containerResultado.style.display = 'none';
+    containerQuiz.style.display = 'block';
+    carregarPergunta();
 }
 
-.bg-alternativo {
-    background-color: #e8f5e9;
-    padding: 60px 20px;
+function carregarPergunta() {
+    resetarEstadoBotao();
+    let q = perguntasQuiz[perguntaAtual];
+    elementoPergunta.textContent = q.pergunta;
+    
+    q.opcoes.forEach((opcao, indice) => {
+        const botao = document.createElement('button');
+        botao.textContent = opcao;
+        botao.classList.add('btn-opcao');
+        botao.addEventListener('click', () => selecionarResposta(indice, botao));
+        elementoAlternativas.appendChild(botao);
+    });
 }
 
-.titulo-secao {
-    text-align: center;
-    font-size: 2.5rem;
-    color: var(--cor-escura);
-    margin-bottom: 40px;
+function resetarEstadoBotao() {
+    btnProximo.style.display = 'none';
+    while (elementoAlternativas.firstChild) {
+        elementoAlternativas.removeChild(elementoAlternativas.firstChild);
+    }
 }
 
-/* Menu de Navegação */
-header {
-    background-color: white;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    position: sticky;
-    top: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 5%;
-    z-index: 1000;
+function selecionarResposta(indiceSelecionado, botaoClicado) {
+    let correta = perguntasQuiz[perguntaAtual].correta;
+    const todosBotoes = elementoAlternativas.querySelectorAll('.btn-opcao');
+    
+    todosBotoes.forEach(btn => btn.disabled = true); // Desativa outros cliques
+    
+    if (indiceSelecionado === correta) {
+        botaoClicado.style.backgroundColor = "#c8e6c9";
+        botaoClicado.style.borderColor = "#4caf50";
+        pontuacao++;
+    } else {
+        botaoClicado.style.backgroundColor = "#ffcdd2";
+        botaoClicado.style.borderColor = "#f44336";
+        // Mostra a correta
+        todosBotoes[correta].style.backgroundColor = "#c8e6c9";
+    }
+    
+    btnProximo.style.display = 'block';
 }
 
-.logo {
-    font-size: 1.6rem;
-    font-weight: bold;
-    color: var(--cor-principal);
+btnProximo.addEventListener('click', () => {
+    perguntaAtual++;
+    if (perguntaAtual < perguntasQuiz.length) {
+        carregarPergunta();
+    } else {
+        mostrarResultado();
+    }
+});
+
+function mostrarResultado() {
+    containerQuiz.style.display = 'none';
+    containerResultado.style.display = 'block';
+    elementoPlacar.textContent = `Você acertou ${pontuacao} de ${perguntasQuiz.length} perguntas sobre sustentabilidade!`;
 }
 
-.logo span {
-    color: #e65100;
+function reiniciarQuiz() {
+    iniciarQuiz();
 }
 
-nav ul {
-    display: flex;
-    list-style: none;
-}
-
-nav ul li {
-    margin-left: 20px;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: var(--cor-texto);
-    font-weight: 600;
-    transition: color 0.3s;
-}
-
-nav ul li a:hover {
-    color: var(--cor-principal);
-}
-
-/* Banner Principal (Hero) */
-.hero {
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
-    height: 70vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: white;
-    padding: 0 20px;
-}
-
-.hero-content h1 {
-    font-size: 3.5rem;
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
-}
-
-.hero-content p {
-    font-size: 1.3rem;
-    margin-bottom: 30px;
-    max-width: 800px;
-}
-
-.btn-principal {
-    background-color: #e65100;
-    color: white;
-    padding: 12px 30px;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 25px;
-    transition: background 0.3s;
-    border: none;
-    cursor: pointer;
-}
-
-.btn-principal:hover {
-    background-color: #ff6d00;
-}
-
-/* Grid de Cards */
-.cards-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
-
-.card {
-    background-color: white;
-    padding: 30px;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    transition: transform 0.3s;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-}
-
-.icone-card {
-    font-size: 3rem;
-    color: var(--cor-principal);
-    margin-bottom: 15px;
-}
-
-/* Seção de Mídia */
-.midia-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: space-between;
-}
-
-.video-box, .imagem-box {
-    flex: 1 1 45%;
-    background: white;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-}
-
-.video-box iframe, .imagem-box img {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    border-radius: 5px;
-}
-
-.legenda {
-    margin-top: 10px;
-    font-size: 0.9rem;
-    color: #666;
-    text-align: center;
-    font-style: italic;
-}
-
-/* Simulador Interativo */
-.simulador-box {
-    background: white;
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-    text-align: center;
-}
-
-.sub-zero {
-    text-align: center;
-    margin-top: -30px;
-    margin-bottom: 30px;
-    color: #666;
-}
-
-.barra-status {
-    width: 100%;
-    height: 30px;
-    background-color: #ddd;
-    border-radius: 15px;
-    position: relative;
-    overflow: hidden;
-    margin-bottom: 10px;
-}
-
-#indicador-equilibrio {
-    width: 50%; /* Começa no meio */
-    height: 100%;
-    background: linear-gradient(to right, #ff1744, #00e676, #d500f9);
-    transition: width 0.5s ease-out;
-}
-
-.status-labels {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.85rem;
-    margin-bottom: 30px;
-    color: #555;
-}
-
-.botoes-simulador button {
-    background-color: var(--cor-principal);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    margin: 5px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.2s;
-}
-
-.botoes-simulador button:hover {
-    background-color: var(--cor-escura);
-}
-
-#feedback-simulador {
-    margin-top: 20px;
-    font-weight: bold;
-    font-size: 1.1rem;
-}
-
-/* Quiz */
-#quiz-container {
-    background: white;
-    padding: 30px;
-    border-radius: 10px;
-    max-width: 700px;
-    margin: 0 auto;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-}
-
-#pergunta {
-    font-size: 1.3rem;
-    font-weight: bold;
-    margin-bottom: 20px;
-}
-
-.btn-opcao {
-    display: block;
-    width: 100%;
-    padding: 12px;
-    background-color: #f0f0f0;
-    border: 2px solid #ddd;
-    border-radius: 8px;
-    margin-bottom: 10px;
-    text-align: left;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: all 0.2s;
-}
-
-.btn-opcao:hover {
-    background-color: #e0e0e0;
-}
-
-#resultado-quiz {
-    text-align: center;
-    background: white;
-    padding: 30px;
-    border-radius: 10px;
-    max-width: 700px;
-    margin: 0 auto;
-}
-
-/* Rodapé */
-footer {
-    background-color: #212121;
-    color: #aaa;
-    text-align: center;
-    padding: 30px 20px;
-    font-size: 0.9rem;
-}
-
-/* Responsividade Básica */
-@media (max-width: 768px) {
-    header { flex-direction: column; }
-    nav ul { margin-top: 15px; }
-    .hero-content h1 { font-size: 2.2rem; }
-    .midia-container { flex-direction: column; }
-}
+// Inicializa o Quiz assim que a página termina de carregar
+window.onload = function() {
+    iniciarQuiz();
