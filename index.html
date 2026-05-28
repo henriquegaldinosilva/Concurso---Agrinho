@@ -3,84 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agrinho 2026 - Agro Forte</title>
+    <title>Agrinho 2026 | Agro Forte, Futuro Sustentável</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
     <header>
-        <div class="container">
-            <h1>🌱 Agrinho 2026</h1>
-            <p>Agro forte, futuro sustentável: equilíbrio entre produção e meio ambiente</p>
-            <a href="#sobre" class="botao">Saiba Mais</a>
+        <div class="logo">
+            <i class="fa-solid fa-leaf"></i> Agrinho <span>2026</span>
         </div>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#pilares">Pilares</a></li>
+                <li><a href="#midia">Mídia</a></li>
+                <li><a href="#simulador">Simulador</a></li>
+                <li><a href="#quiz">Quiz Interativo</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <!-- Sobre o tema -->
-    <section id="sobre" class="container">
-        <h2>Sobre o Tema</h2>
-        <p>
-            O agronegócio é essencial para alimentar o mundo e movimentar a economia.
-            Produzir de forma sustentável garante equilíbrio entre produção e preservação ambiental.
-        </p>
-        <img src="imagens/agricultura.jpg" alt="Campo agrícola sustentável" class="imagem-tema">
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>Agro Forte, Futuro Sustentável</h1>
+            <p>O equilíbrio perfeito entre a alta produtividade no campo e a preservação do meio ambiente.</p>
+            <a href="#simulador" class="btn-principal">Testar o Simulador</a>
+        </div>
     </section>
 
-    <!-- Vídeo educativo -->
-    <section id="video" class="container">
-        <h2>Vídeo Educativo</h2>
-        <video controls width="100%" class="video-tema">
-            <source src="videos/agro-sustentavel.mp4" type="video/mp4">
-            Seu navegador não suporta vídeo HTML5.
-        </video>
-    </section>
-
-    <!-- Cards informativos -->
-    <section id="cards" class="container">
-        <h2>Práticas Sustentáveis</h2>
-        <div class="cards-wrapper">
+    <section id="pilares" class="container">
+        <h2 class="titulo-secao">Produção vs. Sustentabilidade</h2>
+        <div class="cards-grid">
             <div class="card">
-                <img src="imagens/irrigacao.jpg" alt="Irrigação eficiente">
-                <h3>💧 Economia de Água</h3>
-                <p>Sistemas inteligentes de irrigação evitam desperdícios e preservam recursos naturais.</p>
+                <i class="fa-solid fa-seedling icone-card"></i>
+                <h3>Tecnologia Verde</h3>
+                <p>Uso de bioinsumos, drones e agricultura de precisão para reduzir o impacto ambiental e otimizar recursos.</p>
             </div>
             <div class="card">
-                <img src="imagens/plantio.jpg" alt="Plantio de árvores">
-                <h3>🌳 Preservação Ambiental</h3>
-                <p>Plantar árvores e preservar matas garante qualidade de vida para futuras gerações.</p>
+                <i class="fa-solid fa-droplet icone-card"></i>
+                <h3>Gestão Hídrica</h3>
+                <p>Sistemas inteligentes de irrigação, como o gotejamento, que evitam o desperdício de água nas lavouras.</p>
             </div>
             <div class="card">
-                <img src="imagens/tecnologia.jpg" alt="Tecnologia agrícola">
-                <h3>🌾 Produção Sustentável</h3>
-                <p>Técnicas agrícolas modernas aumentam a produtividade sem prejudicar o meio ambiente.</p>
+                <i class="fa-solid fa-tree icone-card"></i>
+                <h3>Preservação Ativa</h3>
+                <p>Integração Lavoura-Pecuária-Floresta (ILPF) e respeito às áreas de reserva legal e APPs.</p>
             </div>
         </div>
     </section>
 
-    <!-- Quiz Interativo -->
-    <section id="quiz" class="container">
-        <h2>Quiz Sustentável</h2>
-        <p>Qual dessas ações ajuda o meio ambiente?</p>
-
-        <button onclick="respostaCorreta()">Plantar árvores</button>
-        <button onclick="respostaErrada()">Desperdiçar água</button>
-
-        <p id="mensagem"></p>
+    <section id="midia" class="bg-alternativo">
+        <div class="container">
+            <h2 class="titulo-secao">O Campo em Ação</h2>
+            <div class="midia-container">
+                <div class="video-box">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Vídeo Agrinho" frameborder="0" allowfullscreen></iframe>
+                    <p class="legenda">Vídeo Informativo: Práticas Sustentáveis no Campo</p>
+                </div>
+                <div class="imagem-box">
+                    <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=800&q=80" alt="Tecnologia no Campo moderno sustentável">
+                    <p class="legenda">Tecnologia e monitoramento de lavouras em tempo real.</p>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- Contador de dias do ano -->
-    <section id="contador" class="container">
-        <h2>Contador de Dias</h2>
-        <p>Quantos dias faltam para o final do ano letivo?</p>
-        <input type="number" id="diasInput" placeholder="Digite o número de dias">
-        <button onclick="calcularDias()">Calcular</button>
-        <p id="resultado"></p>
-    </section>
-
-    <footer>
-        <p>Projeto Agrinho 2026 - 1º Ano do Ensino Médio</p>
-    </footer>
-
-    <script src="script.js"></script>
-</body>
-</html>
+    <section id="simulador" class="container">
+        <h2 class="titulo-secao">Simulador de Decisões Agro</h2>
+        <p class="sub-zero">Tome decisões e tente manter a barra de equilíbrio no centro!</p>
+        
+        <div class="simulador-box">
+            <div class="barra-status">
+                <div id="indicador-equilibrio"></div>
+            </div>
+            <div class="status-labels">
+                <span>Foco em Produção Química</span>
+                <span>Equilíbrio Perfeito</span>
+                <span>Foco 100%
