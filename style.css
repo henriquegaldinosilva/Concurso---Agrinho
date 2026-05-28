@@ -1,0 +1,12 @@
+function calcularDias() {
+    const diasInput = document.getElementById("diasInput").value;
+    const resultado = document.getElementById("resultado");
+
+    if (diasInput === "" || isNaN(diasInput) || diasInput < 0) {
+        resultado.textContent = "Por favor, digite um número válido de dias!";
+        resultado.style.color = "red";
+    } else {
+        resultado.textContent = `Faltam ${diasInput} dias para o final do ano letivo.`;
+        resultado.style.color = "green";
+    }
+}
