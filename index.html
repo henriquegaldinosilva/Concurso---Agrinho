@@ -1,242 +1,90 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Agrinho 2026 - Agronomia e Tecnologia</title>
-
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family: Arial, Helvetica, sans-serif;
-    }
-
-    body{
-      background:#f4fff1;
-      color:#1d1d1d;
-    }
-
-    header{
-      background:linear-gradient(90deg,#2e7d32,#66bb6a);
-      color:white;
-      padding:30px;
-      text-align:center;
-    }
-
-    header h1{
-      font-size:42px;
-      margin-bottom:10px;
-    }
-
-    header p{
-      font-size:18px;
-    }
-
-    nav{
-      background:#1b5e20;
-      padding:15px;
-      text-align:center;
-    }
-
-    nav a{
-      color:white;
-      text-decoration:none;
-      margin:0 15px;
-      font-weight:bold;
-      transition:0.3s;
-    }
-
-    nav a:hover{
-      color:#c8ffb0;
-    }
-
-    .banner{
-      height:400px;
-      background-image:url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?q=80&w=1400');
-      background-size:cover;
-      background-position:center;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-    }
-
-    .banner h2{
-      background:rgba(0,0,0,0.6);
-      color:white;
-      padding:20px;
-      border-radius:10px;
-      font-size:38px;
-    }
-
-    .container{
-      padding:50px 10%;
-    }
-
-    .titulo{
-      text-align:center;
-      margin-bottom:40px;
-      color:#2e7d32;
-      font-size:36px;
-    }
-
-    .cards{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:25px;
-    }
-
-    .card{
-      background:white;
-      border-radius:15px;
-      overflow:hidden;
-      box-shadow:0 5px 15px rgba(0,0,0,0.1);
-      transition:0.3s;
-    }
-
-    .card:hover{
-      transform:translateY(-10px);
-    }
-
-    .card img{
-      width:100%;
-      height:200px;
-      object-fit:cover;
-    }
-
-    .card-content{
-      padding:20px;
-    }
-
-    .card-content h3{
-      color:#2e7d32;
-      margin-bottom:10px;
-    }
-
-    .info{
-      background:#e8f5e9;
-      padding:50px 10%;
-      text-align:center;
-    }
-
-    .info h2{
-      color:#1b5e20;
-      margin-bottom:20px;
-      font-size:34px;
-    }
-
-    .botao{
-      margin-top:25px;
-      padding:15px 30px;
-      border:none;
-      background:#2e7d32;
-      color:white;
-      border-radius:10px;
-      font-size:18px;
-      cursor:pointer;
-      transition:0.3s;
-    }
-
-    .botao:hover{
-      background:#1b5e20;
-    }
-
-    footer{
-      background:#1b5e20;
-      color:white;
-      text-align:center;
-      padding:25px;
-      margin-top:40px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agrinho 2026 - Agro Forte, Futuro Sustentável</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-  <header>
-    <h1>AGRINHO 2026</h1>
-    <p>Tecnologia, Agronomia e Sustentabilidade</p>
-  </header>
+    <header>
+        <div class="logo">Agrinho 2026</div>
+        <nav>
+            <a href="#inicio">Início</a>
+            <a href="#sobre">O Tema</a>
+            <a href="#midia">Galeria</a>
+            <a href="#interativo">Quiz Sustentável</a>
+        </nav>
+    </header>
 
-  <nav>
-    <a href="#">Início</a>
-    <a href="#">Agronomia</a>
-    <a href="#">Tecnologia</a>
-    <a href="#">Sustentabilidade</a>
-    <a href="#">Contato</a>
-  </nav>
-
-  <section class="banner">
-    <h2>O Futuro do Campo é Tecnológico 🌱</h2>
-  </section>
-
-  <section class="container">
-
-    <h2 class="titulo">Áreas da Agronomia</h2>
-
-    <div class="cards">
-
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?q=80&w=1200">
-        <div class="card-content">
-          <h3>Agricultura Sustentável</h3>
-          <p>
-            Técnicas modernas ajudam a produzir alimentos sem prejudicar o meio ambiente.
-          </p>
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>Agro Forte, Futuro Sustentável</h1>
+            <p>O equilíbrio perfeito entre a produção de alimentos e a preservação do meio ambiente.</p>
+            <a href="#sobre" class="btn">Saiba Mais</a>
         </div>
-      </div>
+    </section>
 
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=1200">
-        <div class="card-content">
-          <h3>Uso de Drones</h3>
-          <p>
-            Drones ajudam no monitoramento das plantações e aumentam a produtividade.
-          </p>
+    <section id="sobre" class="container">
+        <h2>Equilíbrio entre Produção e Meio Ambiente</h2>
+        <p>O primeiro ano do Ensino Médio convida todos a refletir: como podemos garantir a segurança alimentar do planeta sem esgotar nossos recursos naturais? O agro forte do futuro utiliza a tecnologia a favor da ecologia, implementando o plantio direto, a rotação de culturas e o uso consciente da água.</p>
+    </section>
+
+    <section id="midia" class="bg-light">
+        <div class="container">
+            <h2>Galeria do Futuro</h2>
+            <p class="subtitle">Veja a tecnologia e a natureza trabalhando juntas.</p>
+            
+            <div class="grid-midia">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=500&q=80" alt="Tecnologia no Campo">
+                    <div class="card-body">
+                        <h3>Tecnologia no Campo</h3>
+                        <p>Drones e sensores ajudam a economizar água e defensivos agrícolas.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?auto=format&fit=crop&w=500&q=80" alt="Preservação Ambiental">
+                    <div class="card-body">
+                        <h3>Preservação Ativa</h3>
+                        <p>Matas ciliares protegidas garantem a fauna e a qualidade da água.</p>
+                    </div>
+                </div>
+
+                <div class="card video-card">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="card-body">
+                        <h3>Vídeo: O Ciclo Sustentável</h3>
+                        <p>Entenda em 2 minutos como funciona a integração lavoura-pecuária-floresta.</p>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
+    </section>
 
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1471193945509-9ad0617afabf?q=80&w=1200">
-        <div class="card-content">
-          <h3>Irrigação Inteligente</h3>
-          <p>
-            Sistemas automáticos economizam água e melhoram a qualidade da produção.
-          </p>
+    <section id="interativo" class="container">
+        <h2>Teste Seus Conhecimentos!</h2>
+        <p>Você sabe o que é um Agro Sustentável? Responda rápido:</p>
+        
+        <div class="quiz-box">
+            <h3 id="pergunta">Qual das práticas abaixo ajuda a fixar nitrogênio no solo de forma natural?</h3>
+            <div class="quiz-options">
+                <button class="quiz-btn" onclick="verificarResposta(false)">Uso massivo de fertilizantes químicos</button>
+                <button class="quiz-btn" onclick="verificarResposta(true)">Rotação de culturas com leguminosas</button>
+                <button class="quiz-btn" onclick="verificarResposta(false)">Queimada controlada da palhada</button>
+            </div>
+            <p id="resultado-quiz"></p>
         </div>
-      </div>
+    </section>
 
-    </div>
+    <footer>
+        <p>&copy; 2026 - Projeto Desenvolvido para o Concurso Agrinho (Ensino Médio)</p>
+    </footer>
 
-  </section>
-
-  <section class="info">
-
-    <h2>Projeto Agrinho</h2>
-
-    <p>
-      Este site mostra como a tecnologia e a agronomia podem transformar o campo,
-      melhorar a produção agrícola e preservar a natureza.
-    </p>
-
-    <button class="botao" onclick="mensagem()">
-      Clique para saber mais
-    </button>
-
-  </section>
-
-  <footer>
-    <p>
-      Desenvolvido para o Concurso Agrinho 2026 | Cascavel - Paraná
-    </p>
-  </footer>
-
-  <script>
-    function mensagem(){
-      alert("A agronomia é essencial para alimentar o mundo com sustentabilidade! 🌎🌱");
-    }
-  </script>
-
+    <script src="script.js"></script>
 </body>
 </html>
