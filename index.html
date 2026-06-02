@@ -9,80 +9,75 @@
 <body>
 
     <header>
-        <div class="logo">Agrinho 2026</div>
+        <div class="logo">Agrinho <span>2026</span></div>
         <nav>
             <a href="#inicio">Início</a>
-            <a href="#sobre">O Tema</a>
-            <a href="#midia">Galeria</a>
-            <a href="#interativo">Quiz Sustentável</a>
+            <a href="#videos">Vídeos</a>
+            <a href="#galeria">Galeria</a>
         </nav>
     </header>
 
     <section id="inicio" class="hero">
         <div class="hero-content">
             <h1>Agro Forte, Futuro Sustentável</h1>
-            <p>O equilíbrio perfeito entre a produção de alimentos e a preservação do meio ambiente.</p>
-            <a href="#sobre" class="btn">Saiba Mais</a>
+            <p>O equilíbrio perfeito entre a alta produção agrícola e a preservação do meio ambiente.</p>
+            <a href="#videos" class="btn">Explore a Mídia</a>
         </div>
     </section>
 
-    <section id="sobre" class="container">
-        <h2>Equilíbrio entre Produção e Meio Ambiente</h2>
-        <p>O primeiro ano do Ensino Médio convida todos a refletir: como podemos garantir a segurança alimentar do planeta sem esgotar nossos recursos naturais? O agro forte do futuro utiliza a tecnologia a favor da ecologia, implementando o plantio direto, a rotação de culturas e o uso consciente da água.</p>
-    </section>
-
-    <section id="midia" class="bg-light">
-        <div class="container">
-            <h2>Galeria do Futuro</h2>
-            <p class="subtitle">Veja a tecnologia e a natureza trabalhando juntas.</p>
-            
-            <div class="grid-midia">
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=500&q=80" alt="Tecnologia no Campo">
-                    <div class="card-body">
-                        <h3>Tecnologia no Campo</h3>
-                        <p>Drones e sensores ajudam a economizar água e defensivos agrícolas.</p>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?auto=format&fit=crop&w=500&q=80" alt="Preservação Ambiental">
-                    <div class="card-body">
-                        <h3>Preservação Ativa</h3>
-                        <p>Matas ciliares protegidas garantem a fauna e a qualidade da água.</p>
-                    </div>
-                </div>
-
-                <div class="card video-card">
-                    <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                    <div class="card-body">
-                        <h3>Vídeo: O Ciclo Sustentável</h3>
-                        <p>Entenda em 2 minutos como funciona a integração lavoura-pecuária-floresta.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="interativo" class="container">
-        <h2>Teste Seus Conhecimentos!</h2>
-        <p>Você sabe o que é um Agro Sustentável? Responda rápido:</p>
+    <section id="videos" class="media-section">
+        <h2>Vídeos em Destaque</h2>
+        <p class="section-subtitle">Selecione um vídeo abaixo para assistir ao conteúdo de sustentabilidade.</p>
         
-        <div class="quiz-box">
-            <h3 id="pergunta">Qual das práticas abaixo ajuda a fixar nitrogênio no solo de forma natural?</h3>
-            <div class="quiz-options">
-                <button class="quiz-btn" onclick="verificarResposta(false)">Uso massivo de fertilizantes químicos</button>
-                <button class="quiz-btn" onclick="verificarResposta(true)">Rotação de culturas com leguminosas</button>
-                <button class="quiz-btn" onclick="verificarResposta(false)">Queimada controlada da palhada</button>
+        <div class="video-container">
+            <div class="main-video">
+                <iframe id="video-player" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
             </div>
-            <p id="resultado-quiz"></p>
+            
+            <div class="video-playlist">
+                <div class="playlist-item active" data-video="dQw4w9WgXcQ">
+                    <h4>1. Tecnologia e Campo</h4>
+                    <p>Como a tecnologia ajuda a poupar recursos naturais.</p>
+                </div>
+                <div class="playlist-item" data-video="Go8nDbHdQhY">
+                    <h4>2. Preservação de Nascentes</h4>
+                    <p>O papel do produtor rural na conservação da água.</p>
+                </div>
+                <div class="playlist-item" data-video="L_LUpnjgPso">
+                    <h4>3. Solo Vivo e Nutrito</h4>
+                    <p>Práticas de rotação de culturas e plantio direto.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="galeria" class="gallery-section">
+        <h2>Galeria de Fotos</h2>
+        <p class="section-subtitle">O equilíbrio da nossa terra em imagens.</p>
+
+        <div class="carousel-container">
+            <div class="carousel-slide">
+                <div class="slide-item active">
+                    <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad451?auto=format&fit=crop&w=1200&q=80" alt="Plantação Sustentável">
+                    <div class="caption">Tecnologia de precisão aplicada ao manejo do solo.</div>
+                </div>
+                <div class="slide-item">
+                    <img src="https://images.unsplash.com/photo-1592417817098-8f3d6eb18865?auto=format&fit=crop&w=1200&q=80" alt="Energia Solar no Campo">
+                    <div class="caption">Energias renováveis alimentando a produção agrícola.</div>
+                </div>
+                <div class="slide-item">
+                    <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=1200&q=80" alt="Colheita consciente">
+                    <div class="caption">Colheita eficiente respeitando os ciclos da natureza.</div>
+                </div>
+            </div>
+
+            <button class="carousel-btn prev" id="prev-btn">&#10094;</button>
+            <button class="carousel-btn next" id="next-btn">&#10095;</button>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 - Projeto Desenvolvido para o Concurso Agrinho (Ensino Médio)</p>
+        <p>&copy; 2026 Concurso Agrinho. Desenvolvido para um futuro mais verde.</p>
     </footer>
 
     <script src="script.js"></script>
